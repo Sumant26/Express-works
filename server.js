@@ -5,7 +5,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 import logger from "./config/logger.js";
-import { requestlogger } from "./middleware/requestHandler.js";
+import { requestLogger } from "./middleware/requestHandler.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
 import authRoutes from "./routes/authRoutes.js";
 
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
-app.use(requestlogger);
+app.use(requestLogger);
 
 // Routes
 app.use("/api/auth", authRoutes);
